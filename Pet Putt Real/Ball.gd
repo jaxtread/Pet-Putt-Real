@@ -10,6 +10,7 @@ func _ready():
 	pass # Replace with function body.
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
+#warning-ignore:unused_argument
 func _physics_process(delta):
 	self.look_at(get_global_mouse_position())
 	
@@ -26,4 +27,8 @@ func body_entered(otherBody):
 		if otherBody.name == "Sword":
 			go.destroy(self)
 			global.isGameOver = true
+		
+		if otherBody.name == "Hole":
+			otherBody.handle_ball_hit()
+			
 		pass

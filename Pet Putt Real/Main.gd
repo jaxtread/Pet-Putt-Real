@@ -16,4 +16,11 @@ func _process(delta):
 	if Input.is_action_just_pressed("restart_game") and global.isGameOver:
 		go.restart_scene()
 		global.isGameOver = false
+	
+	if global.isYouWin == true:
+		$YouWinSprite.visible = true
+	
+	if Input.is_action_just_pressed("restart_game") and global.isYouWin:
+		go.restart_scene()
+		global.isYouWin = false
 	pass
